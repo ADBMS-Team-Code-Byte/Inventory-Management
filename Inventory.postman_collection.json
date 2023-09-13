@@ -1,0 +1,514 @@
+{
+	"info": {
+		"_postman_id": "f76fd06c-90cf-46ce-87f4-16a0a73cd791",
+		"name": "Inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25125664"
+	},
+	"item": [
+		{
+			"name": "get all",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// check if the response status code is 200 (OK)\r",
+							"pm.test(\"Get All Products Status Code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// check if the response contains an array of products\r",
+							"pm.test(\"Response Should Contain an Array of Products\", function () {\r",
+							"    const products = pm.response.json();\r",
+							"    pm.expect(products).to.be.an('array');\r",
+							"    pm.expect(products.length).to.be.above(0); // check if alteast one product is present\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/inventory/get/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"inventory",
+						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// check if the response status code is 200 (OK)\r",
+							"pm.test(\"Get Product Status Code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a message property\r",
+							"pm.test(\"Response Should Have a 'message' Property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('message');\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a product property\r",
+							"pm.test(\"Response Should Have a 'product' Property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('product');\r",
+							"});\r",
+							"\r",
+							"// check if the product object has required fields\r",
+							"pm.test(\"Product Object Should Have Required Fields\", function () {\r",
+							"    const product = pm.response.json().product;\r",
+							"    pm.expect(product).to.have.property('productName');\r",
+							"    pm.expect(product).to.have.property('quantity');\r",
+							"    pm.expect(product).to.have.property('sellingPrice');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/inventory/get/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"inventory",
+						"get",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// check if the response status code is 201 (Created)\r",
+							"pm.test(\"Add Product Status Code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a message property\r",
+							"pm.test(\"Response Should Have a 'message' Property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('message');\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a product property\r",
+							"pm.test(\"Response Should Have a 'product' Property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('product');\r",
+							"});\r",
+							"\r",
+							"// Check if the product object has required fields\r",
+							"pm.test(\"Product Object Should Have Required Fields\", function () {\r",
+							"    const product = pm.response.json().product;\r",
+							"    pm.expect(product).to.have.property('productName');\r",
+							"    pm.expect(product).to.have.property('quantity');\r",
+							"    pm.expect(product).to.have.property('sellingPrice');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productName\":\"motor bike\",\r\n    \"quantity\":30,\r\n    \"sellingPrice\":150000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/inventory/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"inventory",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// check if the response status code is 200 (OK)\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a message property\r",
+							"pm.test(\"Response should have a 'message' property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('message');\r",
+							"});\r",
+							"\r",
+							"// check if the response contains an updatedProduct property\r",
+							"pm.test(\"Response should have an 'updatedProduct' property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('updatedProduct');\r",
+							"});\r",
+							"\r",
+							"// check if the updatedProduct object has the required fields\r",
+							"pm.test(\"Updated product object should have required fields\", function () {\r",
+							"    const updatedProduct = pm.response.json().updatedProduct;\r",
+							"    pm.expect(updatedProduct).to.have.property('productName');\r",
+							"    pm.expect(updatedProduct).to.have.property('quantity');\r",
+							"    pm.expect(updatedProduct).to.have.property('sellingPrice');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\":10,\r\n    \"productName\":\"Oven\",\r\n    \"quantity\":20,\r\n    \"sellingPrice\":60000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/inventory/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"inventory",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "restock",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// check if the response status code is 201 \r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a message property\r",
+							"pm.test(\"Response should have a 'message' property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('message');\r",
+							"});\r",
+							"\r",
+							"// check if the response contains an updatedProduct property\r",
+							"pm.test(\"Response should have an 'updatedProduct' property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('updatedProduct');\r",
+							"});\r",
+							"\r",
+							"// check if the updatedProduct object has the required fields\r",
+							"pm.test(\"Updated product object should have required fields\", function () {\r",
+							"    const updatedProduct = pm.response.json().updatedProduct;\r",
+							"    pm.expect(updatedProduct).to.have.property('productName');\r",
+							"    pm.expect(updatedProduct).to.have.property('quantity');\r",
+							"    pm.expect(updatedProduct).to.have.property('sellingPrice');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\":9,\r\n    \"quantity\":200\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/inventory/restock",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"inventory",
+						"restock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "restock multiple",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// check if the response status code is 200 (OK)\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a message property\r",
+							"pm.test(\"Response should have a 'message' property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('message');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n    \"productId\":9,\r\n    \"quantity\":30\r\n    },\r\n    {\r\n    \"productId\":11,\r\n    \"quantity\":50\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/inventory/restock/multiple",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"inventory",
+						"restock",
+						"multiple"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "use",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// check if the response status code is 200 (OK)\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a message property\r",
+							"pm.test(\"Response should have a 'message' property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('message');\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a product property\r",
+							"pm.test(\"Response should have a 'product' property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('product');\r",
+							"});\r",
+							"\r",
+							"// check if the product object has the required fields\r",
+							"pm.test(\"Product object should have required fields\", function () {\r",
+							"    const product = pm.response.json().product;\r",
+							"    pm.expect(product).to.have.property('productName');\r",
+							"    pm.expect(product).to.have.property('quantity');\r",
+							"    pm.expect(product).to.have.property('sellingPrice');\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a totalPrice property\r",
+							"pm.test(\"Response should have a 'totalPrice' property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('totalPrice');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\":9,\r\n    \"quantity\":20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/inventory/use",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"inventory",
+						"use"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "use multiple",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// check if the response status code is 200 (OK)\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a message property\r",
+							"pm.test(\"Response should have a 'message' property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('message');\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a totalUsedPrice property\r",
+							"pm.test(\"Response should have a 'totalUsedPrice' property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('totalUsedPrice');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n    \"productId\":9,\r\n    \"quantity\":10\r\n    },\r\n    {\r\n    \"productId\":11,\r\n    \"quantity\":5\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/inventory/use/multiple",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"inventory",
+						"use",
+						"multiple"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// check if the response status code is 200 (OK)\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// check if the response contains a message property\r",
+							"pm.test(\"Response should have a 'message' property\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('message');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\":12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/inventory/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"inventory",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
