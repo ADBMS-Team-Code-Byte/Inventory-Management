@@ -47,7 +47,63 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "get all",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3003/inventory/get/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"inventory",
+								"get",
+								"all"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "317"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"13d-poO+siHU2rs0nOn5beIj2g3q3Dg\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Sep 2023 13:07:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"productId\": 9,\n        \"productName\": \"phone\",\n        \"quantity\": 477,\n        \"sellingPrice\": 20000\n    },\n    {\n        \"productId\": 11,\n        \"productName\": \"television\",\n        \"quantity\": 520,\n        \"sellingPrice\": 10000\n    },\n    {\n        \"productId\": 10,\n        \"productName\": \"Laptop\",\n        \"quantity\": 200,\n        \"sellingPrice\": 200000\n    },\n    {\n        \"productId\": 12,\n        \"productName\": \"washing machine\",\n        \"quantity\": 50,\n        \"sellingPrice\": 100000\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "get",
@@ -88,7 +144,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3003/inventory/get/4",
+					"raw": "http://localhost:3003/inventory/get/9",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -97,11 +153,67 @@
 					"path": [
 						"inventory",
 						"get",
-						"4"
+						"9"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3003/inventory/get/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"inventory",
+								"get",
+								"9"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"86-NozlzI87KuJIZKERJh0es8SLfjg\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Sep 2023 13:08:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product Info  Retrieved successfully\",\n    \"product\": {\n        \"productId\": 9,\n        \"productName\": \"phone\",\n        \"quantity\": 477,\n        \"sellingPrice\": 20000\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "create",
@@ -163,7 +275,71 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\":\"motor bike\",\r\n    \"quantity\":30,\r\n    \"sellingPrice\":150000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/inventory/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"inventory",
+								"add"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "130"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"82-qSO0xI12Z5kQGeOYlKITTqxaERg\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Sep 2023 13:08:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product added Successfully\",\n    \"product\": {\n        \"productId\": 13,\n        \"productName\": \"motor bike\",\n        \"quantity\": 30,\n        \"sellingPrice\": 150000\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "update",
@@ -225,7 +401,71 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "update",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":10,\r\n    \"productName\":\"Oven\",\r\n    \"quantity\":20,\r\n    \"sellingPrice\":60000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/inventory/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"inventory",
+								"update"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "140"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8c-VN6hnR7oE8ni0a+csf8O8sKFLcA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Sep 2023 13:08:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product details updated successfully\",\n    \"updatedProduct\": {\n        \"productId\": 10,\n        \"productName\": \"Oven\",\n        \"quantity\": 20,\n        \"sellingPrice\": 60000\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "restock",
@@ -287,7 +527,71 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "restock",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":9,\r\n    \"quantity\":200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/inventory/restock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"inventory",
+								"restock"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "127"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7f-+/0HR9+iu8m7xNWjlNvQWJxqkQo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Sep 2023 13:08:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Restocked successfully\",\n    \"updatedProduct\": {\n        \"productId\": 9,\n        \"productName\": \"phone\",\n        \"quantity\": 677,\n        \"sellingPrice\": 20000\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "restock multiple",
@@ -337,7 +641,72 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "restock multiple",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n    \"productId\":9,\r\n    \"quantity\":30\r\n    },\r\n    {\r\n    \"productId\":11,\r\n    \"quantity\":50\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/inventory/restock/multiple",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"inventory",
+								"restock",
+								"multiple"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-Ebw7GCLenfcleujAnSdgIKhy2oY\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Sep 2023 13:08:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Products restocked successfully\"\n}"
+				}
+			]
 		},
 		{
 			"name": "use",
@@ -404,7 +773,71 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "use",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":9,\r\n    \"quantity\":20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/inventory/use",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"inventory",
+								"use"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "143"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8f-cqGet6JMAFrCk6RsHB0uXC8+W5M\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Sep 2023 13:08:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product used successfully\",\n    \"product\": {\n        \"productId\": 9,\n        \"productName\": \"phone\",\n        \"quantity\": 687,\n        \"sellingPrice\": 20000\n    },\n    \"totalPrice\": 400000\n}"
+				}
+			]
 		},
 		{
 			"name": "use multiple",
@@ -459,7 +892,72 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "use multiple",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n    \"productId\":9,\r\n    \"quantity\":10\r\n    },\r\n    {\r\n    \"productId\":11,\r\n    \"quantity\":5\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/inventory/use/multiple",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"inventory",
+								"use",
+								"multiple"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "64"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"40-l31Fyz0LCk0nJhE7P95UR6S+w4M\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Sep 2023 13:09:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Products used successfully\",\n    \"totalUsedPrice\": 250000\n}"
+				}
+			]
 		},
 		{
 			"name": "delete",
@@ -508,7 +1006,71 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "delete",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/inventory/remove",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"inventory",
+								"remove"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2a-a+2htZNpkCDaj0ausIFBiheaYZ4\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Sep 2023 13:09:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product deleted successfully\"\n}"
+				}
+			]
 		}
 	]
 }
